@@ -3,20 +3,21 @@ import 'package:flutter/material.dart';
 import 'views/notes_view.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const NoteApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class NoteApp extends StatelessWidget {
+  const NoteApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         brightness: Brightness.dark,
+        fontFamily: 'Poppins',
       ),
-      home: const NotesView(),
+      home: const SafeArea(child: NotesView()),
     );
   }
 }
