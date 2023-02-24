@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:note/cubits/add_note_cubit/add_note_cubit.dart';
-import 'package:note/cubits/add_note_cubit/add_note_state.dart';
-import 'package:note/models/note_model.dart';
+
 import 'package:intl/intl.dart';
+import '../../cubits/add_note_cubit/add_note_cubit.dart';
+import '../../cubits/add_note_cubit/add_note_state.dart';
+import '../../models/note_model.dart';
+import 'color_list_view.dart';
 import 'custom_botton.dart';
 import 'custom_text_field.dart';
 
@@ -29,18 +31,19 @@ class _AddNoteFormState extends State<AddNoteForm> {
       child: Column(
         children: [
           CustomTextField(
-            hint: tittle ?? 'tittle',
+            hint: 'tittle',
             onSaved: (value) {
               tittle = value;
             },
           ),
           CustomTextField(
-            hint: supTittle ?? 'Content',
+            hint: 'Content',
             maxline: 5,
             onSaved: (value) {
               supTittle = value;
             },
           ),
+          const ColorListView(),
           const SizedBox(height: 10),
           BlocBuilder<AddNoteCubit, AddNoteState>(
             builder: (BuildContext context, state) => CustomBotton(
